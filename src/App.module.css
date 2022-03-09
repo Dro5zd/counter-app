@@ -1,0 +1,46 @@
+
+.App {
+  background: #F4F4F8;
+  color: #999;
+  width: 200px;
+  border-radius: 25px;
+  padding: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+
+}
+
+.number{
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+  user-select: none;
+  font-weight: bold;
+}
+
+.flexStyle{
+  display: flex;
+  justify-content: space-around;
+}
+
+/*.monitor {*/
+/*  display: block;*/
+/*  margin: 10px auto;*/
+/*  text-align: center;*/
+/*  background-color: red;*/
+/*  width: 200px;*/
+/*  height: 100px;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+.red {
+  font-size: 4em;
+  text-align: center;
+  margin-bottom: 20px;
+  user-select: none;
+  font-weight: bold;
+  color: fuchsia;
+}

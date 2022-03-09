@@ -1,9 +1,14 @@
 import React from 'react';
+import s from '../App.module.css';
 
-export const Monitor = () => {
+type MonitorType = {
+    counter: number
+}
+
+export const Monitor = (props: MonitorType) => {
     return (
-        <div>
-            <h1>0</h1>
+        <div className={s.monitor}>
+            <h1 className={props.counter===5 ? s.red : s.number}>{props.counter}</h1>
         </div>
     );
 };

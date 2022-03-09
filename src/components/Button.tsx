@@ -1,10 +1,17 @@
 import React from 'react';
+import s from './Button.module.css'
 
-export const Button = () => {
+
+type ButtonType ={
+    name: string
+    callback: ()=> void
+    counter: boolean
+}
+
+export const Button = (props: ButtonType) => {
     return (
         <div>
-            <button>+</button>
-            <button>reset</button>
+            <button className={s.button} onClick={props.callback} disabled={props.counter}>{props.name}</button>
         </div>
     );
 };
