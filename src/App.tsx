@@ -3,31 +3,30 @@ import s from './App.module.css';
 import {Button} from './components/Button';
 import {Monitor} from './components/Monitor';
 
-function App() {
+export function App() {
 
-    let [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(0)
 
-    let onclickPlusHandler = () => {
+    const onclickPlusHandler = () => {
         setCounter(counter + 1)
     }
 
-    let onclickResetHandler = () => {
+    const onclickResetHandler = () => {
         setCounter(0)
     }
 
-
+    const disableInc = counter === 5
+    const disableReset = counter === 0
 
     return (
         <div className={s.App}>
             <Monitor counter={counter}/>
             <div className={s.flexStyle}>
-                <Button name="+" callback={onclickPlusHandler} disable={counter===5}/>
-                <Button name="Reset" callback={onclickResetHandler} disable={counter===0}/>
+                <Button name="+" callback={onclickPlusHandler} disable={disableInc}/>
+                <Button name="Reset" callback={onclickResetHandler} disable={disableReset}/>
             </div>
 
 
         </div>
     );
 }
-
-export default App;
