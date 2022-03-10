@@ -15,12 +15,14 @@ function App() {
         setCounter(0)
     }
 
+
+
     return (
         <div className={s.App}>
             <Monitor counter={counter}/>
             <div className={s.flexStyle}>
-                <Button name="+" callback={onclickPlusHandler} counter={counter===5}/>
-                <Button name="Reset" callback={onclickResetHandler} counter={counter===0}/>
+                <Button name="+" callback={onclickPlusHandler} disable={counter===5}/>
+                <Button name="Reset" callback={onclickResetHandler} disable={counter===0}/>
             </div>
 
 

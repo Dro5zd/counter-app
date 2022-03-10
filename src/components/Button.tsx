@@ -5,13 +5,13 @@ import s from './Button.module.css'
 type ButtonType ={
     name: string
     callback: ()=> void
-    counter: boolean
+    disable: boolean
 }
 
 export const Button = (props: ButtonType) => {
     return (
         <div>
-            <button className={s.button} onClick={props.callback} disabled={props.counter}>{props.name}</button>
+            <button className={s.button} onClick={props.callback} disabled={props.disable}>{props.name}</button>
         </div>
     );
 };
