@@ -1,17 +1,16 @@
-import React from 'react';
-import s from './Button.module.css'
+import React, {ChangeEvent} from 'react';
 
-
-type ButtonType ={
+type InputType ={
+    callback: (e: ChangeEvent<HTMLInputElement>)=> void
     name: string
-    callback: ()=> void
-    disable: boolean
+    value: number
 }
 
-export const Button = (props: ButtonType) => {
+export const Input = (props: InputType) => {
     return (
         <div>
-            <button className={s.button} onClick={props.callback} disabled={props.disable}>{props.name}</button>
+            <h1>{props.name}</h1>
+            <input onChange={props.callback} type='number' value={props.value} />
         </div>
     );
 };
