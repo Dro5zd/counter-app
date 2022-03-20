@@ -12,7 +12,7 @@ export function App() {
     const [maxValue, setMaxValue] = useState(localStorage.maxValue ? localStorage.maxValue : 0)
 
     const onclickSetHandler = () => {
-
+        setCounter(+localStorage.minValue)
     }
 
     const onclickPlusHandler = () => {
@@ -25,7 +25,7 @@ export function App() {
 
     const disableInc = counter == localStorage.maxValue
     const disableReset = counter == 0
-    const disableSet = localStorage.maxValue >= localStorage.minValue
+    const disableSet = +localStorage.maxValue <= +localStorage.minValue || +localStorage.maxValue < 0 || +localStorage.minValue < 0
 
 
     return (

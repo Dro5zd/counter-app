@@ -9,7 +9,7 @@ export type SettingsPropsType = {
     minValue: number
     setMinValue: Dispatch<SetStateAction<number>>
     setMaxValue: Dispatch<SetStateAction<number>>
-    onclickSetHandler: ()=>void
+    onclickSetHandler: () => void
 }
 
 export const Settings = (props: SettingsPropsType) => {
@@ -23,8 +23,6 @@ export const Settings = (props: SettingsPropsType) => {
         localStorage.setItem('maxValue', e.currentTarget.value)
         props.setMaxValue(+e.currentTarget.value)
     }
-
-
 
 
     return (
