@@ -34,21 +34,23 @@ export function App() {
 
     return (
         <div className={s.App}>
-            <Settings onclickSetHandler={onclickSetHandler}
-                      setMinValue={setMinValue}
-                      setMaxValue={setMaxValue}
-                      maxValue={maxValue}
-                      minValue={minValue}
-                      disableSet={disableSet}
-                      setEditMode={setEditMode}/>
-            <Monitor counter={counter}
-                     onclickPlusHandler={onclickPlusHandler}
-                     onclickResetHandler={onclickResetHandler}
-                     disableInc={disableInc}
-                     disableReset={disableReset}
-                     disableSet={disableSet}
-                     onclickSetHandler={onclickSetHandler}
-                     editMode={editMode}/>
+            <div className={s.comps}>
+                <Settings onclickSetHandler={onclickSetHandler}
+                          setMinValue={setMinValue}
+                          setMaxValue={setMaxValue}
+                          maxValue={maxValue}
+                          minValue={minValue}
+                          disableSet={disableSet}
+                          setEditMode={setEditMode}/>
+                <Monitor counter={counter}
+                         onclickPlusHandler={onclickPlusHandler}
+                         onclickResetHandler={onclickResetHandler}
+                         disableInc={disableInc}
+                         disableReset={disableReset}
+                         disableSet={disableSet}
+                         editMode={editMode}/>
+            </div>
+
         </div>
     );
 }

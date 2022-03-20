@@ -11,6 +11,7 @@ export const Input = (props: InputType) => {
         <div>
             <h1>{props.name}</h1>
             <input onChange={props.callback} type='number' value={props.value} />
+            {/*<TextField id="outlined-basic" label="Outlined" variant="outlined" />*/}
         </div>
     );
 };

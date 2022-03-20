@@ -16,6 +16,13 @@
 
 }
 
+.comps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 750px;
+}
+
 .settings {
   margin-right: 50px;
   min-height: 350px;
