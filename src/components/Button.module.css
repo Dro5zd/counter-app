@@ -9,17 +9,18 @@
     outline: none;
     cursor: pointer;
     transition: .4s;
-    color: #999;
-    background: #e0e0e0;
+    background: #005BBB;
+    color: black;
     width: 70px;
 }
 
 .button:hover{
-    background: mediumpurple;
+    background: #FFD500;
     color: #fff;
 }
 
 .button:disabled{
-    background: fuchsia;
-    color: black;
+
+    color: #999;
+    background: #e0e0e0;
 }

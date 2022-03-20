@@ -10,6 +10,7 @@ export type SettingsPropsType = {
     setMinValue: Dispatch<SetStateAction<number>>
     setMaxValue: Dispatch<SetStateAction<number>>
     onclickSetHandler: () => void
+    setEditMode: Dispatch<SetStateAction<boolean>>
 }
 
 export const Settings = (props: SettingsPropsType) => {
@@ -17,11 +18,13 @@ export const Settings = (props: SettingsPropsType) => {
     const onChangeMinValue = (e: ChangeEvent<HTMLInputElement>) => {
         localStorage.setItem('minValue', e.currentTarget.value)
         props.setMinValue(+e.currentTarget.value)
+        props.setEditMode(true)
     }
 
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
         localStorage.setItem('maxValue', e.currentTarget.value)
         props.setMaxValue(+e.currentTarget.value)
+        props.setEditMode(true)
     }
 
 
