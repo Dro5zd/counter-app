@@ -1,19 +1,21 @@
 import React from 'react';
 import s from '../App.module.css';
 import {Button} from './Button';
+import SettingsIcon from '@mui/icons-material/Settings';
+import {IconButton} from '@mui/material';
 
-export type MonitorPropsType = {
+export type MonitorWithSettingsPropsType = {
     counter: number
     onclickPlusHandler: () => void
     onclickResetHandler: () => void
-    // onclickSetHandler: () => void
     disableInc: boolean
     disableReset: boolean
     disableSet: boolean
     editMode: boolean
+    onClickSettingsHandler: ()=>void
 }
 
-export const Monitor = (props: MonitorPropsType) => {
+export const MonitorWithSettings = (props: MonitorWithSettingsPropsType) => {
 
     const changeValue = () => {
         if (props.disableSet) {
@@ -33,9 +35,11 @@ export const Monitor = (props: MonitorPropsType) => {
             </div>
             <div className={s.bottomsBlock}>
                 <Button name="+" callback={props.onclickPlusHandler} disable={props.disableInc}/>
+                <IconButton onClick={props.onClickSettingsHandler} aria-label="settings" size="large">
+                    <SettingsIcon fontSize="inherit" />
+                </IconButton>
                 <Button name="RESET" callback={props.onclickResetHandler} disable={props.disableReset}/>
             </div>
-
         </div>
     );
 };

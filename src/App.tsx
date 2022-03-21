@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import s from './App.module.css';
-import {Monitor} from './components/Monitor';
+// import {Monitor} from './components/Monitor';
 import {Settings} from './components/Settings';
+import {MonitorWithSettings} from './components/MonitorWithSettings';
 
 
 export function App() {
+
+    const [collapsed, SetCollapsed] = useState<boolean>(true)
 
     const [editMode, setEditMode] = useState(false)
 
@@ -14,9 +17,14 @@ export function App() {
 
     const [maxValue, setMaxValue] = useState(localStorage.maxValue ? localStorage.maxValue : 0)
 
+    const onClickSettingsHandler = () => {
+        SetCollapsed(false)
+    }
+
     const onclickSetHandler = () => {
         setCounter(+localStorage.minValue)
         setEditMode(false)
+        SetCollapsed(true)
     }
 
     const onclickPlusHandler = () => {
@@ -25,44 +33,54 @@ export function App() {
 
     const onclickResetHandler = () => {
         setCounter(+localStorage.minValue)
-
     }
+
+
     const disableSet = +localStorage.maxValue <= +localStorage.minValue || +localStorage.maxValue < 0 || +localStorage.minValue < 0
     const disableInc = counter == localStorage.maxValue || disableSet
     const disableReset = counter == 0 || disableSet
 
 
-
     return (
         <div className={s.App}>
+            <button>Change View</button>
             <div className={s.components}>
-                <>
-                    <Settings onclickSetHandler={onclickSetHandler}
-                              setMinValue={setMinValue}
-                              setMaxValue={setMaxValue}
-                              maxValue={maxValue}
-                              minValue={minValue}
-                              disableSet={disableSet}
-                              setEditMode={setEditMode}/>
-                </>
-                <>
-                    <Monitor counter={counter}
-                             onclickPlusHandler={onclickPlusHandler}
-                             onclickResetHandler={onclickResetHandler}
-                             disableInc={disableInc}
-                             disableReset={disableReset}
-                             disableSet={disableSet}
-                             editMode={editMode}/>
-                </>
-                <MonitorWithSettings counter={counter}
-                         onclickPlusHandler={onclickPlusHandler}
-                         onclickResetHandler={onclickResetHandler}
-                         disableInc={disableInc}
-                         disableReset={disableReset}
-                         disableSet={disableSet}
-                         editMode={editMode}/>
+                {collapsed ? <MonitorWithSettings counter={counter}
+                                                  onclickPlusHandler={onclickPlusHandler}
+                                                  onclickResetHandler={onclickResetHandler}
+                                                  disableInc={disableInc}
+                                                  disableReset={disableReset}
+                                                  disableSet={disableSet}
+                                                  editMode={editMode}
+                                                  onClickSettingsHandler={onClickSettingsHandler}
+                /> : <Settings onclickSetHandler={onclickSetHandler}
+                               setMinValue={setMinValue}
+                               setMaxValue={setMaxValue}
+                               maxValue={maxValue}
+                               minValue={minValue}
+                               disableSet={disableSet}
+                               setEditMode={setEditMode}/>}
+
 
             </div>
+            {/*<div>*/}
+            {/*        <Monitor counter={counter}*/}
+            {/*                 onclickPlusHandler={onclickPlusHandler}*/}
+            {/*                 onclickResetHandler={onclickResetHandler}*/}
+            {/*                 disableInc={disableInc}*/}
+            {/*                 disableReset={disableReset}*/}
+            {/*                 disableSet={disableSet}*/}
+            {/*                 editMode={editMode}/>*/}
+
+            {/*    <Settings onclickSetHandler={onclickSetHandler}*/}
+            {/*              setMinValue={setMinValue}*/}
+            {/*              setMaxValue={setMaxValue}*/}
+            {/*              maxValue={maxValue}*/}
+            {/*              minValue={minValue}*/}
+            {/*              disableSet={disableSet}*/}
+            {/*              setEditMode={setEditMode}/>*/}
+            {/*</div>*/}
+
 
         </div>
     );
