@@ -6,7 +6,6 @@ export type MonitorPropsType = {
     counter: number
     onclickPlusHandler: () => void
     onclickResetHandler: () => void
-    // onclickSetHandler: () => void
     disableInc: boolean
     disableReset: boolean
     disableSet: boolean
