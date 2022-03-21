@@ -3,6 +3,7 @@ import s from './App.module.css';
 import {Monitor} from './components/Monitor';
 import {Settings} from './components/Settings';
 
+
 export function App() {
 
     const [editMode, setEditMode] = useState(false)
@@ -34,21 +35,33 @@ export function App() {
 
     return (
         <div className={s.App}>
-            <div className={s.comps}>
-                <Settings onclickSetHandler={onclickSetHandler}
-                          setMinValue={setMinValue}
-                          setMaxValue={setMaxValue}
-                          maxValue={maxValue}
-                          minValue={minValue}
-                          disableSet={disableSet}
-                          setEditMode={setEditMode}/>
-                <Monitor counter={counter}
+            <div className={s.components}>
+                <>
+                    <Settings onclickSetHandler={onclickSetHandler}
+                              setMinValue={setMinValue}
+                              setMaxValue={setMaxValue}
+                              maxValue={maxValue}
+                              minValue={minValue}
+                              disableSet={disableSet}
+                              setEditMode={setEditMode}/>
+                </>
+                <>
+                    <Monitor counter={counter}
+                             onclickPlusHandler={onclickPlusHandler}
+                             onclickResetHandler={onclickResetHandler}
+                             disableInc={disableInc}
+                             disableReset={disableReset}
+                             disableSet={disableSet}
+                             editMode={editMode}/>
+                </>
+                <MonitorWithSettings counter={counter}
                          onclickPlusHandler={onclickPlusHandler}
                          onclickResetHandler={onclickResetHandler}
                          disableInc={disableInc}
                          disableReset={disableReset}
                          disableSet={disableSet}
                          editMode={editMode}/>
+
             </div>
 
         </div>

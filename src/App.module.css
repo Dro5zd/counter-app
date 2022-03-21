@@ -1,62 +1,100 @@
-.App{
-  margin: 0 auto;
-  display: flex;
-  max-width: 1200px;
-  justify-content: center;
-  align-items: center;
+.App {
+    margin: 0 auto;
+    display: flex;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
 }
+
+.components {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 800px;
+}
+
 .monitor {
-  min-height: 350px;
-  background: #F4F4F8;
-  color: #999;
-  width: 200px;
-  border-radius: 25px;
-  padding: 20px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
-
-}
-
-.comps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 750px;
+    min-height: 300px;
+    background: #F4F4F8;
+    color: #999;
+    width: 400px;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
 
 .settings {
-  margin-right: 50px;
-  min-height: 350px;
-  background: #F4F4F8;
-  color: #999;
-  width: 200px;
-  border-radius: 25px;
-  padding: 20px;
-  /*position: absolute;*/
-  /*transform: translate(-50%, -50%);*/
-  /*top: 50%;*/
-  /*left: 50%;*/
-  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    margin-right: 30px;
+    min-height: 300px;
+    background: #F4F4F8;
+    color: #999;
+    width: 400px;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
+.display {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    height: 205px;
+    box-shadow: rgba(100, 100, 111, 0.2) inset 0 0 10px 0;
+}
+
+.bottomsBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    max-height: 100px;
 
 }
 
-.number{
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 20px;
-  user-select: none;
-  font-weight: bold;
-}
-
-.flexStyle{
-  display: flex;
-  justify-content: space-around;
+.number {
+    font-size: 3em;
+    font-weight: bold;
+    align-items: center;
 }
 
 .red {
-  font-size: 4em;
-  text-align: center;
-  margin-bottom: 20px;
-  user-select: none;
-  font-weight: bold;
-  color: fuchsia;
+    font-size: 4em;
+    font-weight: bold;
+    color: red;
 }
+
+.error {
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+}
+
+.value {
+    font-size: 30px;
+    /*text-align: center;*/
+    /*margin-bottom: 20px;*/
+    /*user-select: none;*/
+    font-weight: bold;
+    color: dimgray;
+}
+
+.Input h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.setDisplay {
+    /*display: flex;*/
+    padding-left: 100px;
+    padding-top: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    height: 200px;
+    box-shadow: rgba(100, 100, 111, 0.2) inset 0 0 10px 0;
+}
+
+
