@@ -3,7 +3,7 @@ import s from '../App.module.css';
 import {Button} from './Button';
 import {Input} from './Input';
 
-export type SettingsPropsType = {
+export type SettingsForMonitorPropsType = {
     disableSet: boolean
     maxValue: number
     minValue: number
@@ -13,7 +13,7 @@ export type SettingsPropsType = {
     setEditMode: Dispatch<SetStateAction<boolean>>
 }
 
-export const Settings = (props: SettingsPropsType) => {
+export const SettingsForMonitor = (props: SettingsForMonitorPropsType) => {
 
     const onChangeMinValue = (e: ChangeEvent<HTMLInputElement>) => {
         localStorage.setItem('minValue', e.currentTarget.value)
@@ -29,7 +29,7 @@ export const Settings = (props: SettingsPropsType) => {
 
 
     return (
-        <div className={s.settings}>
+        <div className={s.settingsForMonitor}>
             <div className={s.setDisplay}>
                 <Input name={'Min value:'} callback={onChangeMinValue} value={props.minValue} disable={props.disableSet}/>
                 <Input name={'Max value:'} callback={onChangeMaxValue} value={props.maxValue} disable={props.disableSet}/>
