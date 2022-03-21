@@ -1,7 +1,7 @@
 import React, {ChangeEvent, Dispatch, SetStateAction} from 'react';
-import s from '../App.module.css';
-import {Button} from './Button';
-import {Input} from './Input';
+import s from './Settings.module.css';
+import {Button} from '../Button/Button';
+import {Input} from '../Input/Input';
 
 export type SettingsPropsType = {
     disableSet: boolean
@@ -27,17 +27,17 @@ export const Settings = (props: SettingsPropsType) => {
         props.setEditMode(true)
     }
 
-
     return (
         <div className={s.settings}>
             <div className={s.setDisplay}>
-                <Input name={'Min value:'} callback={onChangeMinValue} value={props.minValue} disable={props.disableSet}/>
-                <Input name={'Max value:'} callback={onChangeMaxValue} value={props.maxValue} disable={props.disableSet}/>
+                <Input name={'Min value:'} callback={onChangeMinValue} value={props.minValue}
+                       disable={props.disableSet}/>
+                <Input name={'Max value:'} callback={onChangeMaxValue} value={props.maxValue}
+                       disable={props.disableSet}/>
             </div>
             <div className={s.bottomsBlock}>
                 <Button name="SET" callback={props.onclickSetHandler} disable={props.disableSet}/>
             </div>
-
         </div>
     );
 };

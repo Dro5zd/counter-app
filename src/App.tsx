@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import s from './App.module.css';
-// import {Monitor} from './components/Monitor';
-import {Settings} from './components/Settings';
-import {MonitorWithSettings} from './components/MonitorWithSettings';
-import {SettingsForMonitor} from './components/SettingsForMonitor';
-import {Monitor} from './components/Monitor';
 import {FormControlLabel, FormGroup, Switch} from '@mui/material';
+import {Settings} from './components/Settings/Settings';
+import {MonitorWithSettings} from './components/Monitor/MonitorWithSettings';
 
 
 export function App() {
@@ -27,13 +24,13 @@ export function App() {
     }
 
     const onClickSettingsHandler = () => {
-        SetCollapsed(false)
+        SetCollapsed(!collapsed)
     }
 
     const onclickSetHandler = () => {
         setCounter(+localStorage.minValue)
         setEditMode(false)
-        SetCollapsed(true)
+        SetCollapsed(!collapsed)
     }
 
     const onclickPlusHandler = () => {
@@ -54,48 +51,52 @@ export function App() {
         <div>
             <div className={s.view}>
                 <FormGroup>
-                    <FormControlLabel  control={<Switch defaultChecked color="warning" onClick={changeViewHandler}/>} label="View" />
+                    <FormControlLabel control={<Switch defaultChecked color="warning" onClick={changeViewHandler}/>}
+                                      label="View"/>
                 </FormGroup>
             </div>
 
             <div className={s.App}>
-                {changeView ? <div className={s.components}>
-                    {collapsed ? <MonitorWithSettings counter={counter}
-                                                      onclickPlusHandler={onclickPlusHandler}
-                                                      onclickResetHandler={onclickResetHandler}
-                                                      disableInc={disableInc}
-                                                      disableReset={disableReset}
-                                                      disableSet={disableSet}
-                                                      editMode={editMode}
-                                                      onClickSettingsHandler={onClickSettingsHandler}
-                    /> : <SettingsForMonitor onclickSetHandler={onclickSetHandler}
-                                             setMinValue={setMinValue}
-                                             setMaxValue={setMaxValue}
-                                             maxValue={maxValue}
-                                             minValue={minValue}
+                {changeView ?
+                    <div className={s.components}>
+                        {collapsed ?
+                            <Settings onclickSetHandler={onclickSetHandler}
+                                      setMinValue={setMinValue}
+                                      setMaxValue={setMaxValue}
+                                      maxValue={maxValue}
+                                      minValue={minValue}
+                                      disableSet={disableSet}
+                                      setEditMode={setEditMode}/> :
+                            <MonitorWithSettings counter={counter}
+                                                 onclickPlusHandler={onclickPlusHandler}
+                                                 onclickResetHandler={onclickResetHandler}
+                                                 disableInc={disableInc}
+                                                 disableReset={disableReset}
+                                                 disableSet={disableSet}
+                                                 editMode={editMode}
+                                                 onClickSettingsHandler={onClickSettingsHandler}
+                                                 changeView={changeView}/>}
+
+                    </div> : <div className={s.components}>
+                        <Settings onclickSetHandler={onclickSetHandler}
+                                  setMinValue={setMinValue}
+                                  setMaxValue={setMaxValue}
+                                  maxValue={maxValue}
+                                  minValue={minValue}
+                                  disableSet={disableSet}
+                                  setEditMode={setEditMode}/>
+
+                        <MonitorWithSettings counter={counter}
+                                             onclickPlusHandler={onclickPlusHandler}
+                                             onclickResetHandler={onclickResetHandler}
+                                             disableInc={disableInc}
+                                             disableReset={disableReset}
                                              disableSet={disableSet}
-                                             setEditMode={setEditMode}/>}
+                                             editMode={editMode}
+                                             onClickSettingsHandler={onClickSettingsHandler}
+                                             changeView={changeView}/>
 
-
-                </div> : <div className={s.components}>
-                    <Settings onclickSetHandler={onclickSetHandler}
-                              setMinValue={setMinValue}
-                              setMaxValue={setMaxValue}
-                              maxValue={maxValue}
-                              minValue={minValue}
-                              disableSet={disableSet}
-                              setEditMode={setEditMode}/>
-
-                    <Monitor counter={counter}
-                             onclickPlusHandler={onclickPlusHandler}
-                             onclickResetHandler={onclickResetHandler}
-                             disableInc={disableInc}
-                             disableReset={disableReset}
-                             disableSet={disableSet}
-                             editMode={editMode}/>
-
-
-                </div>}
+                    </div>}
             </div>
 
         </div>

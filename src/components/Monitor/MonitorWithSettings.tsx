@@ -1,8 +1,10 @@
 import React from 'react';
-import s from '../App.module.css';
-import {Button} from './Button';
+import s from './MonitorWithSettings.module.css'
+import {Button} from '../Button/Button';
+import SettingsIcon from '@mui/icons-material/Settings';
+import {IconButton} from '@mui/material';
 
-export type MonitorPropsType = {
+export type MonitorWithSettingsPropsType = {
     counter: number
     onclickPlusHandler: () => void
     onclickResetHandler: () => void
@@ -10,9 +12,11 @@ export type MonitorPropsType = {
     disableReset: boolean
     disableSet: boolean
     editMode: boolean
+    onClickSettingsHandler: () => void
+    changeView: boolean
 }
 
-export const Monitor = (props: MonitorPropsType) => {
+export const MonitorWithSettings = (props: MonitorWithSettingsPropsType) => {
 
     const changeValue = () => {
         if (props.disableSet) {
@@ -20,21 +24,23 @@ export const Monitor = (props: MonitorPropsType) => {
         } else if (props.editMode) {
             return <span className={s.value}>Enter value and press 'SET'</span>
         }
-        return props.counter
+        return <h1 className={props.counter == localStorage.maxValue ? s.red : s.number}>{props.counter}</h1>
     }
 
     return (
         <div className={s.monitor}>
             <div className={s.display}>
-                <h1 className={props.counter == localStorage.maxValue ? s.red : s.number}>
-                    {changeValue()}
-                </h1>
+                {changeValue()}
             </div>
             <div className={s.bottomsBlock}>
                 <Button name="+" callback={props.onclickPlusHandler} disable={props.disableInc}/>
+                {props.changeView ?
+                    <IconButton onClick={props.onClickSettingsHandler} aria-label="settings" size="large">
+                        <SettingsIcon fontSize="inherit"/>
+                    </IconButton> : <></>}
+
                 <Button name="RESET" callback={props.onclickResetHandler} disable={props.disableReset}/>
             </div>
-
         </div>
     );
 };
