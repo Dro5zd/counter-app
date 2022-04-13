@@ -37,7 +37,7 @@ export const MonitorWithSettings = (props: MonitorWithSettingsPropsType) => {
                 {props.changeView ?
                     <IconButton onClick={props.onClickSettingsHandler} aria-label="settings" size="large">
                         <SettingsIcon fontSize="inherit"/>
-                    </IconButton> : <></>}
+                    </IconButton> : null}
 
                 <Button name="RESET" callback={props.onclickResetHandler} disable={props.disableReset}/>
             </div>

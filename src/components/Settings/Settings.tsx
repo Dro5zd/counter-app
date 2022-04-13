@@ -30,9 +30,9 @@ export const Settings = (props: SettingsPropsType) => {
     return (
         <div className={s.settings}>
             <div className={s.setDisplay}>
-                <Input name={'Min value:'} callback={onChangeMinValue} value={props.minValue}
+                <Input name={'MIN:'} callback={onChangeMinValue} value={props.minValue}
                        disable={props.disableSet}/>
-                <Input name={'Max value:'} callback={onChangeMaxValue} value={props.maxValue}
+                <Input name={'MAX:'} callback={onChangeMaxValue} value={props.maxValue}
                        disable={props.disableSet}/>
             </div>
             <div className={s.bottomsBlock}>

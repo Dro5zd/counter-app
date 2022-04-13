@@ -1,0 +1,20 @@
+.Input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    height: 100px;
+}
+
+.Input h1 {
+    margin: 0;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.numbers {
+    display: flex;
+    font-size: 50px;
+    font-weight: bold;
+    color: #000000;
+}
