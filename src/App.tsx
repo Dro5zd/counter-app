@@ -4,7 +4,6 @@ import {FormControlLabel, FormGroup, Switch} from '@mui/material';
 import {Settings} from './components/Settings/Settings';
 import {MonitorWithSettings} from './components/Monitor/MonitorWithSettings';
 
-
 export function App() {
 
     const [changeView, setChangeView] = useState(true)
@@ -13,11 +12,11 @@ export function App() {
 
     const [editMode, setEditMode] = useState(false)
 
-    const [counter, setCounter] = useState(+localStorage.minValue)
+    const [counter, setCounter] = useState(+localStorage.minValue || 0)
 
-    const [minValue, setMinValue] = useState(localStorage.minValue ? localStorage.minValue : 0)
+    const [minValue, setMinValue] = useState(+localStorage.minValue || 0)
 
-    const [maxValue, setMaxValue] = useState(localStorage.maxValue ? localStorage.maxValue : 0)
+    const [maxValue, setMaxValue] = useState(+localStorage.maxValue || 0)
 
     const changeViewHandler = () => {
         setChangeView(!changeView)
@@ -28,7 +27,7 @@ export function App() {
     }
 
     const onclickSetHandler = () => {
-        setCounter(+localStorage.minValue)
+        setCounter(minValue)
         setEditMode(false)
         SetCollapsed(!collapsed)
     }
@@ -38,13 +37,13 @@ export function App() {
     }
 
     const onclickResetHandler = () => {
-        setCounter(+localStorage.minValue)
+        setCounter(minValue)
     }
 
 
-    const disableSet = +localStorage.maxValue <= +localStorage.minValue || +localStorage.maxValue < 0 || +localStorage.minValue < 0
-    const disableInc = counter == localStorage.maxValue || disableSet
-    const disableReset = counter == 0 || disableSet
+    const disableSet = maxValue <= minValue || maxValue < 0 || minValue < 0
+    const disableInc = counter === maxValue || disableSet
+    const disableReset = counter === 0 || disableSet
 
 
     return (
