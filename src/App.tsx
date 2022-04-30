@@ -56,27 +56,28 @@ export function App() {
             </div>
 
             <div className={s.App}>
-                {changeView ?
+                {changeView
+                    ?
                     <div className={s.components}>
-                        {collapsed ?
-                            <Settings onclickSetHandler={onclickSetHandler}
-                                      setMinValue={setMinValue}
-                                      setMaxValue={setMaxValue}
-                                      maxValue={maxValue}
-                                      minValue={minValue}
-                                      disableSet={disableSet}
-                                      setEditMode={setEditMode}/> :
-                            <MonitorWithSettings counter={counter}
-                                                 onclickPlusHandler={onclickPlusHandler}
-                                                 onclickResetHandler={onclickResetHandler}
-                                                 disableInc={disableInc}
-                                                 disableReset={disableReset}
-                                                 disableSet={disableSet}
-                                                 editMode={editMode}
-                                                 onClickSettingsHandler={onClickSettingsHandler}
-                                                 changeView={changeView}/>}
-
-                    </div> : <div className={s.components}>
+                        {collapsed
+                            ? <Settings onclickSetHandler={onclickSetHandler}
+                                        setMinValue={setMinValue}
+                                        setMaxValue={setMaxValue}
+                                        maxValue={maxValue}
+                                        minValue={minValue}
+                                        disableSet={disableSet}
+                                        setEditMode={setEditMode}/>
+                            : <MonitorWithSettings counter={counter}
+                                                   onclickPlusHandler={onclickPlusHandler}
+                                                   onclickResetHandler={onclickResetHandler}
+                                                   disableInc={disableInc}
+                                                   disableReset={disableReset}
+                                                   disableSet={disableSet}
+                                                   editMode={editMode}
+                                                   onClickSettingsHandler={onClickSettingsHandler}
+                                                   changeView={changeView}/>}
+                    </div>
+                    : <div className={s.components}>
                         <Settings onclickSetHandler={onclickSetHandler}
                                   setMinValue={setMinValue}
                                   setMaxValue={setMaxValue}
